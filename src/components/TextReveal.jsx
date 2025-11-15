@@ -53,35 +53,45 @@ const TextReveal = ({
   const animateText = () => {
     if (!textContainerRef.current) return;
 
-    // Check if SplitText is available
-    if (typeof window !== 'undefined' && window.SplitText) {
-      const SplitText = window.SplitText;
+    try {
+      // Check if SplitText is available
+      if (typeof window !== 'undefined' && window.SplitText) {
+        const SplitText = window.SplitText;
 
-      gsap.set(textContainerRef.current, { opacity: 1 });
+        gsap.set(textContainerRef.current, { opacity: 1 });
 
-      const split = new SplitText(textContainerRef.current, {
-        type: 'words,lines',
-        linesClass: 'line',
-      });
+        const split = new SplitText(textContainerRef.current, {
+          type: 'words,lines',
+          linesClass: 'line',
+        });
 
-      animationRef.current = gsap.from(split.lines, {
-        duration: duration,
-        delay: delay,
-        yPercent: 100,
-        opacity: 0,
-        stagger: stagger,
-        ease: 'expo.out',
-      });
-    } else {
-      // Fallback: Simple slide-up and fade-in animation if SplitText is not available
-      gsap.set(textContainerRef.current, { opacity: 0, y: 30 });
-      animationRef.current = gsap.to(textContainerRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: duration,
-        delay: delay,
-        ease: 'expo.out',
-      });
+        animationRef.current = gsap.from(split.lines, {
+          duration: duration,
+          delay: delay,
+          yPercent: 100,
+          opacity: 0,
+          stagger: stagger,
+          ease: 'expo.out',
+        });
+      } else {
+        // Fallback: Simple slide-up and fade-in animation if SplitText is not available
+        animationRef.current = gsap.fromTo(
+          textContainerRef.current,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: duration,
+            delay: delay,
+            ease: 'expo.out',
+          }
+        );
+      }
+    } catch (error) {
+      // Emergency fallback - just make it visible
+      if (textContainerRef.current) {
+        textContainerRef.current.style.opacity = '1';
+      }
     }
   };
 
