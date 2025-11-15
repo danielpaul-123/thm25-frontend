@@ -1,6 +1,9 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import Home from './pages/Home'
-import ComingSoon from './pages/ComingSoon'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
+
+// Lazy load pages for code splitting
+const Home = lazy(() => import('./pages/Home'))
+const ComingSoon = lazy(() => import('./pages/ComingSoon'))
 
 // Example page components (create these files separately)
 function About() {
@@ -18,13 +21,13 @@ function NotFound() {
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ComingSoon />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<ComingSoon />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
     </BrowserRouter>
   )
 }

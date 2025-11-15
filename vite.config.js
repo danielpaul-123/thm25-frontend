@@ -8,4 +8,17 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split vendor libraries
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'animation-vendor': ['framer-motion', 'gsap'],
+          'starfield-vendor': ['react-starfield'],
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000, // Increase warning limit to 1000kb
+  }
 })
