@@ -73,11 +73,11 @@ const TextReveal = ({
         ease: 'expo.out',
       });
     } else {
-      // Fallback: Simple fade-in animation if SplitText is not available
-      console.warn('SplitText plugin not found. Using fallback animation.');
-      gsap.set(textContainerRef.current, { opacity: 0 });
+      // Fallback: Simple slide-up and fade-in animation if SplitText is not available
+      gsap.set(textContainerRef.current, { opacity: 0, y: 30 });
       animationRef.current = gsap.to(textContainerRef.current, {
         opacity: 1,
+        y: 0,
         duration: duration,
         delay: delay,
         ease: 'expo.out',
@@ -90,11 +90,6 @@ const TextReveal = ({
       <div ref={textContainerRef} className={className} style={{ opacity: 0 }}>
         {children}
       </div>
-      <style jsx>{`
-        :global(.line) {
-          overflow: hidden;
-        }
-      `}</style>
     </div>
   );
 };
