@@ -15,34 +15,21 @@ const TextReveal = ({
   const textContainerRef = useRef(null);
   const wrapperRef = useRef(null);
   const animationRef = useRef(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    // Ensure text is visible after 2 seconds as a fallback
-    const fallbackTimer = setTimeout(() => {
-      if (textContainerRef.current && !hasAnimated) {
-        textContainerRef.current.style.opacity = '1';
-        textContainerRef.current.style.transform = 'translateY(0)';
-      }
-    }, 2000);
-
-    return () => clearTimeout(fallbackTimer);
-  }, [hasAnimated]);
+  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
     if (!textContainerRef.current || !wrapperRef.current) return;
+
+    const currentWrapper = wrapperRef.current;
 
     // Create Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           // Only animate when entering viewport for the first time
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            setIsReady(true);
-            // Small delay to ensure element is ready
-            setTimeout(() => animateText(), 50);
+          if (entry.isIntersecting && !hasAnimatedRef.current) {
+            hasAnimatedRef.current = true;
+            animateText();
           }
         });
       },
@@ -52,25 +39,44 @@ const TextReveal = ({
       }
     );
 
-    observer.observe(wrapperRef.current);
+    observer.observe(currentWrapper);
 
     // Cleanup
     return () => {
-      if (wrapperRef.current) {
-        observer.unobserve(wrapperRef.current);
+      if (currentWrapper) {
+        observer.unobserve(currentWrapper);
       }
       if (animationRef.current) {
         animationRef.current.kill();
       }
     };
-  }, [hasAnimated]);
+  }, []);
 
   const animateText = () => {
     if (!textContainerRef.current) return;
 
     try {
-      // Simple slide-up and fade-in animation
-      if (gsap && gsap.fromTo) {
+      // Check if SplitText is available
+      if (typeof window !== 'undefined' && window.SplitText) {
+        const SplitText = window.SplitText;
+
+        gsap.set(textContainerRef.current, { opacity: 1 });
+
+        const split = new SplitText(textContainerRef.current, {
+          type: 'words,lines',
+          linesClass: 'line',
+        });
+
+        animationRef.current = gsap.from(split.lines, {
+          duration: duration,
+          delay: delay,
+          yPercent: 100,
+          opacity: 0,
+          stagger: stagger,
+          ease: 'expo.out',
+        });
+      } else {
+        // Fallback: Simple slide-up and fade-in animation if SplitText is not available
         animationRef.current = gsap.fromTo(
           textContainerRef.current,
           { opacity: 0, y: 30 },
@@ -79,30 +85,21 @@ const TextReveal = ({
             y: 0,
             duration: duration,
             delay: delay,
-            ease: 'power3.out',
+            ease: 'expo.out',
           }
         );
-      } else {
-        // If GSAP is not available, just show the text
-        textContainerRef.current.style.opacity = '1';
-        textContainerRef.current.style.transform = 'translateY(0)';
       }
     } catch (error) {
       // Emergency fallback - just make it visible
       if (textContainerRef.current) {
         textContainerRef.current.style.opacity = '1';
-        textContainerRef.current.style.transform = 'translateY(0)';
       }
     }
   };
 
   return (
     <div ref={wrapperRef} className={`overflow-hidden ${containerClass}`}>
-      <div 
-        ref={textContainerRef} 
-        className={className} 
-        style={{ opacity: 0, transform: 'translateY(30px)', transition: 'opacity 0.3s ease, transform 0.3s ease' }}
-      >
+      <div ref={textContainerRef} className={className} style={{ opacity: 0 }}>
         {children}
       </div>
     </div>
