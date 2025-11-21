@@ -22,7 +22,7 @@ export const LoaderOne = () => {
           y: [0, 10, 0],
         }}
         transition={transition(0)}
-        className="h-4 w-4 rounded-full border border-[#00d693] bg-gradient-to-b from-[#00d693] to-[#048163] shadow-lg shadow-[#00d693]/50" />
+        className="h-4 w-4 rounded-full border border-[#00d693] bg-linear-to-b from-[#00d693] to-[#048163] shadow-lg shadow-[#00d693]/50" />
       <motion.div
         initial={{
           y: 0,
@@ -31,7 +31,7 @@ export const LoaderOne = () => {
           y: [0, 10, 0],
         }}
         transition={transition(1)}
-        className="h-4 w-4 rounded-full border border-[#048163] bg-gradient-to-b from-[#048163] to-[#021921] shadow-lg shadow-[#048163]/50" />
+        className="h-4 w-4 rounded-full border border-[#048163] bg-linear-to-b from-[#048163] to-[#021921] shadow-lg shadow-[#048163]/50" />
       <motion.div
         initial={{
           y: 0,
@@ -40,7 +40,7 @@ export const LoaderOne = () => {
           y: [0, 10, 0],
         }}
         transition={transition(2)}
-        className="h-4 w-4 rounded-full border border-[#00d693] bg-gradient-to-b from-[#00d693] to-[#048163] shadow-lg shadow-[#00d693]/50" />
+        className="h-4 w-4 rounded-full border border-[#00d693] bg-linear-to-b from-[#00d693] to-[#048163] shadow-lg shadow-[#00d693]/50" />
     </div>
   );
 };
@@ -121,7 +121,7 @@ export const LoaderFour = ({
 }) => {
   return (
     <div
-      className="relative font-bold text-black [perspective:1000px] dark:text-white">
+      className="relative font-bold text-black perspective-[1000px] dark:text-white">
       <motion.span
         animate={{
           skew: [0, -40, 0],

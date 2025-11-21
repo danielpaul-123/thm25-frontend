@@ -201,7 +201,7 @@ const MagicBentoMobile = ({
         />
       )}
       <div
-        className="bento-section-mobile w-full max-w-[90rem] select-none relative mx-auto px-4"
+        className="bento-section-mobile w-full max-w-360 select-none relative mx-auto px-4"
         ref={gridRef}>
         <div className="flex flex-col gap-4">
           {cardData.map((card, index) => {

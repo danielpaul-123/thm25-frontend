@@ -68,7 +68,7 @@ const Schedule = () => {
         <TextReveal className="text-4xl md:text-5xl font-bold text-white mb-4">
           Event Schedule
         </TextReveal>
-        <div className="w-24 h-1 bg-gradient-to-r from-[#00d693] to-[#048163] mx-auto mt-4 mb-12"></div>
+        <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto mt-4 mb-12"></div>
         
         <p className="text-2xl md:text-3xl text-gray-300 font-light">
           Coming Soon

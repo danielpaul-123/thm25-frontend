@@ -7,7 +7,7 @@ const ExpandableGallery = ({ images, className }) => {
       {images.map((image, index) => (
         <div
           key={image + index}
-          className="relative flex h-full flex-1 cursor-pointer overflow-hidden rounded-xl transition-all duration-500 ease-in-out hover:flex-[3]"
+          className="relative flex h-full flex-1 cursor-pointer overflow-hidden rounded-xl transition-all duration-500 ease-in-out hover:flex-3"
         >
           <img
             className="relative h-full w-full object-cover"

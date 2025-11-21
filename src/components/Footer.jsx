@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="flex flex-wrap">
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
               <div className="mb-10 w-full">
-                <a href="/#" className="mb-6 inline-block max-w-[160px]">
+                <a href="/#" className="mb-6 inline-block max-w-40">
                   <img
                     src="/logo.webp"
                     alt="logo"
@@ -28,7 +28,7 @@ const Footer = () => {
                     className="max-w-full hidden dark:block"
                   />
                 </a>
-                <a href="/#" className="mb-6 inline-block max-w-[240px]">
+                <a href="/#" className="mb-6 inline-block max-w-60">
                   <img
                     src="/Travancore Logo.webp"
                     alt="logo"

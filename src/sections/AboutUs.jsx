@@ -77,7 +77,7 @@ function AboutUs() {
           <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mt-6 mb-4">
             Welcome to THM 2025 — the signature meet of the IEEE Travancore Hub, organized under the IEEE Umbrella. A dynamic 2-day event designed for engineering students, innovators, and future leaders to converge, collaborate, and create.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00d693] to-[#048163] mx-auto"></div>
+          <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto"></div>
         </div>
 
         {/* Content */}

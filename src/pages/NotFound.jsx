@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const NotFound = () => {
   return (
-    <div className="relative w-screen h-[100dvh] overflow-hidden bg-black">
+    <div className="relative w-screen h-dvh overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
         <Starfield
           starCount={800}
@@ -27,7 +27,7 @@ const NotFound = () => {
             </div>
 
             <div className="mt-8">
-              <Link to="/" className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#00d693] to-[#048163] text-black font-semibold">
+              <Link to="/" className="inline-block px-6 py-3 rounded-full bg-linear-to-r from-[#00d693] to-[#048163] text-black font-semibold">
                 Go Home
               </Link>
             </div>

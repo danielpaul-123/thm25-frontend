@@ -4,7 +4,7 @@ import ShinyText from '../components/ShinyText';
 
 const ComingSoon = () => {
   return (
-    <div className="relative w-screen h-[100dvh] overflow-hidden">
+    <div className="relative w-screen h-dvh overflow-hidden">
       {/* Starfield Background */}
       <div className="absolute inset-0 z-0">
         <Starfield
