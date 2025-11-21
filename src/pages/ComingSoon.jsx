@@ -29,7 +29,7 @@ const ComingSoon = () => {
         {/* Logo at Bottom Center */}
         <div className="pb-8 md:pb-12">
           <img 
-            src="/logo.png" 
+            src="/logo.webp" 
             alt="Logo" 
             className="h-9 md:h-12 lg:h-15 w-auto object-contain"
           />

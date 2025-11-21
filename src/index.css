@@ -159,3 +159,88 @@ html, body, #root {
     background-position: -200% center;
   }
 }
+
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.animate-spin-slow {
+    animation: spin-slow 3s linear infinite;
+}
+
+@keyframes bounce-slow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+.animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* Chasing dots animation */
+@keyframes dot-chase {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-4px);
+    }
+}
+
+.dot-chase {
+    display: inline-block;
+    animation: dot-chase 1.4s ease-in-out infinite;
+}
+
+.dot-1 {
+    animation-delay: 0s;
+}
+
+.dot-2 {
+    animation-delay: 0.2s;
+}
+
+.dot-3 {
+    animation-delay: 0.4s;
+}
+
+/* Glare effect */
+.glare {
+    position: absolute;
+    top: -20%;
+    left: -40%;
+    width: 60%;
+    height: 140%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+    transform: rotate(18deg) translateX(-120%);
+    opacity: 0;
+    transition: transform 650ms cubic-bezier(.4,0,.2,1), opacity 300ms;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    z-index: 20;
+    border-radius: 9999px;
+    filter: blur(6px);
+}
+
+.group:hover .glare {
+    transform: rotate(18deg) translateX(120%);
+    opacity: 0.9;
+}
+
+/* subtle reduced glare on touch devices to avoid accidental flash */
+@media (hover: none) {
+    .glare { 
+        opacity: 0; 
+        transform: rotate(18deg) translateX(-120%); 
+    }
+}

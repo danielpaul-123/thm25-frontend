@@ -10,7 +10,7 @@ export const StaggeredMenu = ({
   displaySocials = true,
   displayItemNumbering = true,
   className,
-  logoUrl = '/logo.svg',
+  logoUrl = '/logo.webp',
   menuButtonColor = '#fff',
   openMenuButtonColor = '#fff',
   changeMenuColorOnOpen = true,
@@ -362,13 +362,13 @@ export const StaggeredMenu = ({
 
         <header
           className={`staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between p-[2em] pointer-events-none z-20 transition-all duration-500 ${
-            scrolled ? 'bg-black/30 backdrop-blur-md' : 'bg-transparent'
+            scrolled ? 'max-lg:bg-black/30 max-lg:backdrop-blur-md' : 'bg-transparent'
           }`}
           aria-label="Main navigation header"
         >
           <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
             <img
-              src={logoUrl || '/logo.svg'}
+              src={logoUrl || '/logo.webp'}
               alt="Logo"
               className="sm-logo-img block h-8 w-auto object-contain"
               draggable={false}

@@ -19,7 +19,7 @@ function Landing() {
         <div className="relative z-10 text-center px-8 max-w-5xl text-white">
             <div className="mb-10 flex justify-center">
                 <img 
-                    src="/logo.png" 
+                    src="/logo.webp" 
                     alt="IEEE Techsortium'25" 
                     className="h-24 sm:h-28 md:h-36 lg:h-40 xl:h-44 w-auto max-w-[90vw] object-contain drop-shadow-2xl"
                 />
@@ -35,7 +35,9 @@ function Landing() {
             <br/>
             
             {/* Event Details with Liquid Glass Theme */}
-            {/* <div className="inline-flex items-center gap-6 px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl relative overflow-hidden">
+            {/* <div className="inline-flex items-center gap-6 px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl relative overflow-hidden group">
+                <div className="glare" aria-hidden="true"></div>
+                
                 <div className="relative z-10 flex items-center gap-6">
                     <div className="flex items-center gap-2">
                         <svg className="w-5 h-5 text-[#00d693]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,6 +57,20 @@ function Landing() {
                     </div>
                 </div>
             </div> */}
+            
+            <div className="inline-flex items-center gap-6 px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl relative overflow-hidden group">
+                {/* Glare element (animated on hover) */}
+                <div className="glare" aria-hidden="true"></div>
+
+                <div className="relative z-10 flex items-center gap-2">
+                    <span className="text-sm md:text-base font-medium">Coming Soon</span>
+                    <span className="flex gap-1 ml-1">
+                        <span className="dot-chase dot-1">.</span>
+                        <span className="dot-chase dot-2">.</span>
+                        <span className="dot-chase dot-3">.</span>
+                    </span>
+                </div>
+            </div>
         </div>
         
         {/* Scroll Down Indicator */}
@@ -64,33 +80,6 @@ function Landing() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7-7-7" />
             </svg>
         </div>
-        
-        <style>{`
-            @keyframes spin-slow {
-                from {
-                    transform: rotate(0deg);
-                }
-                to {
-                    transform: rotate(360deg);
-                }
-            }
-            .animate-spin-slow {
-                animation: spin-slow 3s linear infinite;
-            }
-            
-            @keyframes bounce-slow {
-                0%, 100% {
-                    transform: translateY(0);
-                }
-                50% {
-                    transform: translateY(-10px);
-                }
-            }
-            .animate-bounce-slow {
-                animation: bounce-slow 2s ease-in-out infinite;
-            }
-        `}</style>
-        
     </section>
   )
 }

@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Landing from '../sections/Landing'
 import AboutUs from '../sections/AboutUs'
 import Features from '../sections/Features'
-import WhyAttend from '../sections/WhyAttend'
 import Schedule from '../sections/Schedule'
 import Registration from '../sections/Registration'
 import MediaGallery from '../sections/MediaGallery'
@@ -12,21 +11,52 @@ import LoadingScreen from '../components/LoadingScreen';
 import Footer from '../components/Footer';
 
 const menuItems = [
-  { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
+  { label: 'Home', ariaLabel: 'Go to home page', link: '#landing' },
   { label: 'About', ariaLabel: 'Learn about us', link: '#about' },
-  { label: 'Events', ariaLabel: 'View events', link: '#events' },
+  { label: 'Features', ariaLabel: 'View features', link: '#features' },
   { label: 'Schedule', ariaLabel: 'View schedule', link: '#schedule' },
+  { label: 'Tickets', ariaLabel: 'Register now', link: '#registration' },
+  { label: 'Gallery', ariaLabel: 'View gallery', link: '#gallery' },
   { label: 'Contact', ariaLabel: 'Get in touch', link: '#contact' }
 ];
 
 const socialItems = [
-  { label: 'Instagram', link: 'https://instagram.com' },
-  { label: 'Twitter', link: 'https://twitter.com' },
-  { label: 'LinkedIn', link: 'https://linkedin.com' }
+  { label: 'Instagram', link: 'https://www.instagram.com/ieeetravancorehub' },
+  { label: 'Facebook', link: 'https://www.facebook.com/ieeelink' },
+  { label: 'LinkedIn', link: 'https://www.linkedin.com/company/ieee-travancore-hub/' }
 ];
 
 function Home() {
   const [contentVisible, setContentVisible] = useState(false);
+
+  useEffect(() => {
+    // Smooth scroll handler for navigation links
+    const handleSmoothScroll = (e) => {
+      const target = e.target.closest('a');
+      if (!target) return;
+      
+      const href = target.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    };
+
+    // Add event listener to document for navigation links
+    document.addEventListener('click', handleSmoothScroll);
+
+    return () => {
+      document.removeEventListener('click', handleSmoothScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -56,7 +86,7 @@ function Home() {
         openMenuButtonColor="#fff"
         changeMenuColorOnOpen={false}
         colors={['#76f9a4', '#5abe7d', '#021921']}
-        logoUrl="/logo.png"
+        logoUrl="/logo.webp"
         accentColor="#5abe7d"
         isFixed={true}
         // onMenuOpen={() => console.log('Menu opened')}
@@ -66,14 +96,13 @@ function Home() {
       {/* Content on top of starfield */}
       <div className="relative z-10">
         {/* Sections displayed in specific order */}
-        <Landing />
-        <AboutUs />
-        <Features />
-        <WhyAttend />
-        <Schedule />
-        <Registration />
-        <MediaGallery />
-        <Footer />
+        <div id="landing"><Landing /></div>
+        <div id="about"><AboutUs /></div>
+        <div id="features"><Features /></div>
+        <div id="schedule"><Schedule /></div>
+        <div id="registration"><Registration /></div>
+        <div id="gallery"><MediaGallery /></div>
+        <div id="contact"><Footer /></div>
       </div>
       </div>
     </>

@@ -688,7 +688,7 @@ const MagicBento = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}>
                   <div className="card__header flex justify-between gap-3 relative text-white">
-                    <span className="card__label text-base">{card.label}</span>
+                    <span className="card__label text-base text-[rgba(0,214,147,0.9)]">{card.label}</span>
                   </div>
                   <div className="card__content flex flex-col relative text-white">
                     <h3
