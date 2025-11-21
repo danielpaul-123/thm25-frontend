@@ -40,13 +40,13 @@ const Timeline = ({
   return (
     <div 
       ref={timelineContainerRef} 
-      className={`w-full bg-white font-sans md:px-10 dark:bg-neutral-950 ${containerClass}`}
+      className={`w-full bg-neutral-950 font-sans md:px-10 ${containerClass}`}
     >
       <div className={`mx-auto max-w-7xl px-4 py-20 lg:px-10 md:px-8 ${className}`}>
-        <h2 className="mb-4 max-w-4xl text-lg text-black md:text-4xl dark:text-white">
+        <h2 className="mb-4 max-w-4xl text-lg text-white md:text-4xl">
           {title}
         </h2>
-        <p className="max-w-sm text-sm text-neutral-700 md:text-base dark:text-neutral-300">
+        <p className="max-w-sm text-sm text-neutral-300 md:text-base">
           {description}
         </p>
       </div>

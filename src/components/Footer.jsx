@@ -20,28 +20,18 @@ const Footer = () => {
                   <img
                     src="/logo.webp"
                     alt="logo"
-                    className="max-w-full dark:hidden"
-                  />
-                  <img
-                    src="/logo.webp"
-                    alt="logo"
-                    className="max-w-full hidden dark:block"
+                    className="max-w-full"
                   />
                 </a>
                 <a href="/#" className="mb-6 inline-block max-w-60">
                   <img
                     src="/Travancore Logo.webp"
                     alt="logo"
-                    className="max-w-full dark:hidden"
-                  />
-                  <img
-                    src="/Travancore Logo.webp"
-                    alt="logo"
-                    className="max-w-full hidden dark:block"
+                    className="max-w-full"
                   />
                 </a>
                 <div className="space-y-3">
-                  <p className="flex items-center text-sm font-medium text-dark dark:text-white">
+                  <p className="flex items-center text-sm font-medium text-white">
                     <span className="mr-3 text-primary">
                       <svg
                         width="20"
@@ -76,7 +66,7 @@ const Footer = () => {
                     </a>
                     
                   </p>
-                  <p className="flex items-center text-sm font-medium text-dark dark:text-white">
+                  <p className="flex items-center text-sm font-medium text-white">
                     <span className="mr-3 text-primary">
                       <svg
                         width="20"
@@ -116,27 +106,27 @@ const Footer = () => {
 
             <div className="w-full px-4 sm:w-1/2 lg:w-2/12" style={{ pointerEvents: 'auto' }}>
               <div className="mb-10 w-full">
-                <h4 className="mb-9 text-lg font-semibold text-dark dark:text-white">
+                <h4 className="mb-9 text-lg font-semibold text-white">
                   Navigate
                 </h4>
                 <ul className="space-y-3">
                   <li>
-                    <a href="#about" className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 cursor-pointer transition-colors duration-200">
+                    <a href="#about" className="inline-block text-base leading-loose text-gray-300 hover:text-primary cursor-pointer transition-colors duration-200">
                       About
                     </a>
                   </li>
                   <li>
-                    <a href="#features" className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 cursor-pointer transition-colors duration-200">
+                    <a href="#features" className="inline-block text-base leading-loose text-gray-300 hover:text-primary cursor-pointer transition-colors duration-200">
                       Features
                     </a>
                   </li>
                   <li>
-                    <a href="#schedule" className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 cursor-pointer transition-colors duration-200">
+                    <a href="#schedule" className="inline-block text-base leading-loose text-gray-300 hover:text-primary cursor-pointer transition-colors duration-200">
                       Schedule
                     </a>
                   </li>
                   <li>
-                    <a href="#registration" className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 cursor-pointer transition-colors duration-200">
+                    <a href="#registration" className="inline-block text-base leading-loose text-gray-300 hover:text-primary cursor-pointer transition-colors duration-200">
                       Registration
                     </a>
                   </li>
@@ -146,22 +136,22 @@ const Footer = () => {
             
             <div className="w-full px-4 sm:w-1/2 lg:w-2/12" style={{ pointerEvents: 'auto' }}>
               <div className="mb-10 w-full">
-                <h4 className="mb-9 text-lg font-semibold text-dark dark:text-white">
+                <h4 className="mb-9 text-lg font-semibold text-white">
                   Explore
                 </h4>
                 <ul className="space-y-3">
                   <li>
-                    <a href="#gallery" className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 cursor-pointer transition-colors duration-200">
+                    <a href="#gallery" className="inline-block text-base leading-loose text-gray-300 hover:text-primary cursor-pointer transition-colors duration-200">
                       Gallery
                     </a>
                   </li>
                   <li>
-                    <a href="#contact" className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 cursor-pointer transition-colors duration-200">
+                    <a href="#contact" className="inline-block text-base leading-loose text-gray-300 hover:text-primary cursor-pointer transition-colors duration-200">
                       Contact
                     </a>
                   </li>
                   <li>
-                    <a href="#landing" className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 cursor-pointer transition-colors duration-200">
+                    <a href="#landing" className="inline-block text-base leading-loose text-gray-300 hover:text-primary cursor-pointer transition-colors duration-200">
                       Home
                     </a>
                   </li>
@@ -171,7 +161,7 @@ const Footer = () => {
             
             <div className="w-full px-4 sm:w-1/2 lg:w-2/12" style={{ pointerEvents: 'auto' }}>
               <div className="mb-10 w-full">
-                <h4 className="mb-9 text-lg font-semibold text-dark dark:text-white">
+                <h4 className="mb-9 text-lg font-semibold text-white">
                   Quick Links
                 </h4>
                 <ul className="space-y-3">
@@ -180,7 +170,7 @@ const Footer = () => {
                       href="https://www.ieee.org" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 cursor-pointer transition-colors duration-200"
+                      className="inline-block text-base leading-loose text-gray-300 hover:text-primary cursor-pointer transition-colors duration-200"
                     >
                       IEEE
                     </a>
@@ -190,7 +180,7 @@ const Footer = () => {
                       href="https://www.ieeekerala.org" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 cursor-pointer transition-colors duration-200"
+                      className="inline-block text-base leading-loose text-gray-300 hover:text-primary cursor-pointer transition-colors duration-200"
                     >
                       IEEE Kerala Section
                     </a>
@@ -200,7 +190,7 @@ const Footer = () => {
                       href="https://www.ieee-link.org" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6 cursor-pointer transition-colors duration-200"
+                      className="inline-block text-base leading-loose text-gray-300 hover:text-primary cursor-pointer transition-colors duration-200"
                     >
                       IEEE LINK
                     </a>
@@ -211,7 +201,7 @@ const Footer = () => {
 
             <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
               <div className="mb-10 w-full">
-                <h4 className="mb-9 text-lg font-semibold text-dark dark:text-white">
+                <h4 className="mb-9 text-lg font-semibold text-white">
                   Follow Us On
                 </h4>
                 <div className="mb-6 flex items-center">
@@ -219,7 +209,7 @@ const Footer = () => {
                     href={socialItems[1].link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-primary sm:mr-4 lg:mr-3 xl:mr-4"
+                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white hover:border-primary hover:bg-primary sm:mr-4 lg:mr-3 xl:mr-4"
                   >
                     <svg
                       width="8"
@@ -234,7 +224,7 @@ const Footer = () => {
                     href={socialItems[0].link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-primary sm:mr-4 lg:mr-3 xl:mr-4"
+                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white hover:border-primary hover:bg-primary sm:mr-4 lg:mr-3 xl:mr-4"
                   >
                     <svg
                       width="16"
@@ -249,7 +239,7 @@ const Footer = () => {
                     href={socialItems[2].link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-stroke text-dark hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-white dark:hover:border-primary sm:mr-4 lg:mr-3 xl:mr-4"
+                    className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white hover:border-primary hover:bg-primary sm:mr-4 lg:mr-3 xl:mr-4"
                   >
                     <svg
                       width="14"
@@ -261,7 +251,7 @@ const Footer = () => {
                     </svg>
                   </a>
                 </div>
-                <p className="text-base text-body-color dark:text-dark-6">
+                <p className="text-base text-gray-400">
                   &copy; 2025 IEEE LINK. All rights reserved.
                 </p>
               </div>

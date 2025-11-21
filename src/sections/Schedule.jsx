@@ -79,7 +79,7 @@ const Schedule = () => {
       {/* <Timeline
         items={scheduleItems}
         renderSlot={renderScheduleContent}
-        containerClass="!bg-black dark:!bg-black"
+        containerClass="!bg-black"
         className="!py-0"
       /> */}
     </section>
