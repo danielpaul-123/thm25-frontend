@@ -37,7 +37,7 @@ const featuresData = [
 
 const Features = () => {
   return (
-    <section className="relative w-full py-20 px-4 md:px-8 bg-black">
+    <section className="relative w-full py-5 px-4 md:px-8 bg-black">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

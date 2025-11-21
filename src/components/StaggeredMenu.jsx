@@ -379,7 +379,7 @@ export const StaggeredMenu = ({
           <HoverBorderGradient
         containerClassName="rounded-full"
         as="button"
-        className="dark:bg-[#059171] bg-white text-black dark:text-white flex items-center space-x-2"
+        className="bg-[#059171] text-white flex items-center space-x-2"
         onClick={toggleMenu}
         aria-label={open ? 'Close menu' : 'Open menu'}
         aria-expanded={open}
