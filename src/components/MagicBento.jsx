@@ -448,7 +448,7 @@ const GlobalSpotlight = ({
 
 const BentoCardGrid = ({ children, gridRef }) => (
   <div
-    className="bento-section grid gap-2 p-3 w-full max-w-[1300px] select-none relative mx-auto"
+    className="bento-section grid gap-2 p-3 w-full max-w-[1200px] select-none relative mx-auto"
     style={{ fontSize: 'clamp(1rem, 0.9rem + 0.5vw, 1.5rem)' }}
     ref={gridRef}>
     {children}
@@ -636,17 +636,17 @@ const MagicBento = ({
           }
           
           .card__title {
-            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            font-size: clamp(0.9rem, 1.3vw, 1.1rem);
             line-height: 1.4;
           }
           
           .card__description {
-            font-size: clamp(0.875rem, 1vw, 1rem);
+            font-size: clamp(0.75rem, 0.9vw, 0.875rem);
             line-height: 1.6;
           }
           
           .card__label {
-            font-size: clamp(0.75rem, 1vw, 0.875rem);
+            font-size: clamp(0.7rem, 0.9vw, 0.8rem);
           }
         `}
       </style>

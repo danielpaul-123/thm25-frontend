@@ -758,7 +758,7 @@ const RegistrationPage = () => {
                             <p>Scan the QR code below to pay ₹{formData.ticketType} via UPI:</p>
                             <div className="w-48 h-48 bg-white/10 rounded-lg flex items-center justify-center overflow-hidden mx-auto">
                               <img 
-                                src={`/src/assets/${formData.ticketType}.webp`} 
+                                src={`/${formData.ticketType}.webp`} 
                                 alt={`QR Code for ₹${formData.ticketType} payment`}
                                 className="w-full h-full object-contain"
                               />
