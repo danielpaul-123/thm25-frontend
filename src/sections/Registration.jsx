@@ -47,12 +47,7 @@ const Registration = ({ ticketsAvailable }) => {
                   </svg>
                   <p className="text-gray-300">Access to all workshop tracks</p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-[#00d693] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p className="text-gray-300">Industry visits</p>
-                </div>
+
                 <div className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-[#00d693] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -129,12 +124,7 @@ const Registration = ({ ticketsAvailable }) => {
                   </svg>
                   <p className="text-gray-300">Access to all workshop tracks</p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-[#00d693] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p className="text-gray-300">Industry visits</p>
-                </div>
+
                 <div className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-[#00d693] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
