@@ -100,11 +100,11 @@ function AboutUs() {
               enableStars={true}
               enableSpotlight={true}
               enableBorderGlow={true}
-              enableTilt={true}
-              enableMagnetism={true}
+              enableTilt={false}
+              enableMagnetism={false}
               clickEffect={true}
-              spotlightRadius={300}
-              particleCount={15}
+              spotlightRadius={250}
+              particleCount={10}
               glowColor="0, 214, 147"
             />
           </div>

@@ -19,7 +19,7 @@ const featuresData = [
     quote: 'Build your Student Branch operational capability and leadership mindset through SB growth workshops, vTools training, and peer-mentoring.',
     name: 'Leadership & Operations Modules',
     designation: 'Professional Development',
-    src: 'IMG_7039.webp',
+    src: '4.webp',
   },
   {
     quote: 'Be part of a statewide IEEE network with quick-impact 15-min mentoring sessions linking students with industry professionals and academia.',
