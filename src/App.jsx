@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
+import { LoaderOne } from './components/ui/loader'
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import('./pages/Home'))
@@ -7,30 +8,22 @@ const ComingSoon = lazy(() => import('./pages/ComingSoon'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage'))
 
-// Example page components (create these files separately)
-function About() {
-  return <div><h1>About Page</h1></div>
-}
-
-function Contact() {
-  return <div><h1>Contact Page</h1></div>
-}
-
-// function NotFound() {
-//   return <div><h1>404 - Page Not Found</h1></div>
-// }
+// Simple Suspense Fallback
+const SuspenseLoader = () => (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+    <LoaderOne />
+  </div>
+)
 
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={null}>
+      <Suspense fallback={<SuspenseLoader />}>
         <Routes>
-          <Route path="/" element={<ComingSoon />} />
-          <Route path="/home" element={<Home />} />
+          {/* <Route path="/" element={<ComingSoon />} /> */}
+          {/* <Route path="/home" element={<Home />} /> */}
           <Route path="/register" element={<RegistrationPage />} />
-          {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
