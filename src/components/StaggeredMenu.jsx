@@ -443,6 +443,7 @@ export const StaggeredMenu = ({
                       href={it.link}
                       aria-label={it.ariaLabel}
                       data-index={idx + 1}
+                      onClick={toggleMenu}
                     >
                       <span className="sm-panel-itemLabel inline-block origin-[50%_100%] will-change-transform">
                         {it.label}
