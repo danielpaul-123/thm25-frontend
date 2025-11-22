@@ -112,15 +112,27 @@ const RegistrationPage = () => {
   // Check ticket availability on mount
   useEffect(() => {
     const apiUrl = import.meta.env.VITE_API_URL;
-    fetch(`${apiUrl}/tickets/availability`)
-      .then(response => response.json())
+    fetch(`${apiUrl}/tickets/availability`, {
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+      },
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(result => {
         if (result.success && result.data.status === 'closed') {
           setSoldOutDialogOpen(true);
         }
       })
       .catch(error => {
-        console.error('Error checking ticket availability:', error);
+        console.warn('Unable to check ticket availability. CORS error or network issue:', error.message);
+        console.warn('Backend needs CORS configuration. Allowing registration to proceed.');
+        // Default to allowing registration on error
       });
   }, []);
 

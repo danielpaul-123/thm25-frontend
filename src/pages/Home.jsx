@@ -33,15 +33,26 @@ function Home() {
   useEffect(() => {
     // Fetch ticket availability
     const apiUrl = import.meta.env.VITE_API_URL;
-    fetch(`${apiUrl}/tickets/availability`)
-      .then(response => response.json())
+    fetch(`${apiUrl}/tickets/availability`, {
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+      },
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(result => {
         if (result.success) {
           setTicketsAvailable(result.data.status === 'open');
         }
       })
       .catch(error => {
-        console.error('Error fetching ticket availability:', error);
+        console.warn('Unable to fetch ticket availability. CORS error or network issue:', error.message);
+        console.warn('Backend needs CORS configuration. Defaulting to tickets available.');
         // Default to available on error
         setTicketsAvailable(true);
       });
