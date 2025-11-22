@@ -20,5 +20,20 @@ export default defineConfig({
       }
     },
     chunkSizeWarningLimit: 1000, // Increase warning limit to 1000kb
+    minify: 'terser', // Use terser for better minification
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console.logs in production
+        drop_debugger: true
+      }
+    }
+  },
+  // SEO and Performance optimizations
+  server: {
+    headers: {
+      'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'SAMEORIGIN',
+      'X-XSS-Protection': '1; mode=block'
+    }
   }
 })

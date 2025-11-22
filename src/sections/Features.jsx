@@ -37,15 +37,15 @@ const featuresData = [
 
 const Features = () => {
   return (
-    <section className="relative w-full py-5 px-4 md:px-8 bg-black">
+    <section id="features" className="relative w-full py-5 px-4 md:px-8 bg-black" aria-labelledby="features-heading">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <TextReveal className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <header className="text-center mb-16">
+          <TextReveal id="features-heading" className="text-4xl md:text-5xl font-bold text-white mb-4">
             Features & Highlights
           </TextReveal>
-          <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto mt-4"></div>
-        </div>
+          <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto mt-4" aria-hidden="true"></div>
+        </header>
 
         {/* Animated Testimonials */}
         <AnimatedTestimonials testimonials={featuresData} autoplay={true} />

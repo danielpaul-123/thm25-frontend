@@ -20,18 +20,18 @@ const galleryImages2 = [
 
 const MediaGallery = () => {
   return (
-    <section className="relative w-full py-20 px-4 md:px-8 bg-linear-to-b from-black via-[#021921]/20 to-black overflow-hidden">
+    <section id="gallery" className="relative w-full py-20 px-4 md:px-8 bg-linear-to-b from-black via-[#021921]/20 to-black overflow-hidden" aria-labelledby="gallery-heading">
       <div className="max-w-7xl mx-auto relative">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <TextReveal className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <header className="text-center mb-16">
+          <TextReveal id="gallery-heading" className="text-4xl md:text-5xl font-bold text-white mb-4">
             Gallery
           </TextReveal>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-6">
             Relive past editions through photos and videos.
           </p>
-          <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto mt-4"></div>
-        </div>
+          <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto mt-4" aria-hidden="true"></div>
+        </header>
 
         {/* Desktop: Expandable Gallery */}
         <div className="hidden md:block relative z-10">

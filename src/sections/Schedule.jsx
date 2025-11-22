@@ -62,18 +62,18 @@ const Schedule = () => {
   // };
 
   return (
-    <section className="relative w-full py-20 bg-black">
+    <section id="schedule" className="relative w-full py-20 bg-black" aria-labelledby="schedule-heading">
       {/* Custom Section Header matching design theme */}
-      <div className="text-center px-4">
-        <TextReveal className="text-4xl md:text-5xl font-bold text-white mb-4">
+      <header className="text-center px-4">
+        <TextReveal id="schedule-heading" className="text-4xl md:text-5xl font-bold text-white mb-4">
           Event Schedule
         </TextReveal>
-        <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto mt-4 mb-12"></div>
+        <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto mt-4 mb-12" aria-hidden="true"></div>
         
         <p className="text-2xl md:text-3xl text-gray-300 font-light">
           Coming Soon
         </p>
-      </div>
+      </header>
 
       {/* Timeline */}
       {/* <Timeline

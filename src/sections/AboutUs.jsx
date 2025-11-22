@@ -67,18 +67,18 @@ const mobileCardData = [
 
 function AboutUs() {
   return (
-    <section className="relative w-full min-h-screen py-20 px-4 md:px-8 overflow-x-hidden">
+    <section id="about" className="relative w-full min-h-screen py-20 px-4 md:px-8 overflow-x-hidden" aria-labelledby="about-heading">
       <div className="w-full mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <TextReveal className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <header className="text-center mb-16">
+          <TextReveal id="about-heading" className="text-4xl md:text-5xl font-bold text-white mb-4">
             About Travancore Hub Meet 2025
           </TextReveal>
           <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mt-6 mb-4">
             Welcome to THM 2025 — the signature meet of the IEEE Travancore Hub, organized under the IEEE Umbrella. A dynamic 2-day event designed for engineering students, innovators, and future leaders to converge, collaborate, and create.
           </p>
-          <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto"></div>
-        </div>
+          <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto" aria-hidden="true"></div>
+        </header>
 
         {/* Content */}
         <div className="relative text-white w-full flex justify-center">

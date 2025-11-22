@@ -11,34 +11,39 @@ const socialItems = [
 const Footer = () => {
   return (
     <>
-      <footer className="relative z-10 bg-transparent pb-5 pt-10 lg:pb-10 lg:pt-5">
+      <footer id="contact" className="relative z-10 bg-transparent pb-5 pt-10 lg:pb-10 lg:pt-5" role="contentinfo" aria-label="Site footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap">
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
               <div className="mb-10 w-full">
-                <a href="/#" className="mb-6 inline-block max-w-40">
+                <a href="/#" className="mb-6 inline-block max-w-40" aria-label="THM 2025 Home">
                   <img
                     src="/logo.webp"
-                    alt="logo"
+                    alt="THM 2025 - Travancore Hub Meet Logo"
                     className="max-w-full"
+                    width="160"
+                    height="160"
                   />
                 </a>
-                <a href="/#" className="mb-6 inline-block max-w-60">
+                <a href="/#" className="mb-6 inline-block max-w-60" aria-label="IEEE Travancore Hub">
                   <img
                     src="/Travancore Logo.webp"
-                    alt="logo"
+                    alt="IEEE Travancore Hub Logo"
                     className="max-w-full"
+                    width="240"
+                    height="80"
                   />
                 </a>
                 <div className="space-y-3">
                   <p className="flex items-center text-sm font-medium text-white">
-                    <span className="mr-3 text-primary">
+                    <span className="mr-3 text-primary" aria-hidden="true">
                       <svg
                         width="20"
                         height="20"
                         viewBox="0 0 20 20"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
                       >
                         <g clipPath="url(#clip0_941_15626)">
                           <path
@@ -61,7 +66,7 @@ const Footer = () => {
                         </defs>
                       </svg>
                     </span>
-                    <a href="tel:+919188001211" className="hover:text-primary transition-colors">
+                    <a href="tel:+919188001211" className="hover:text-primary transition-colors" aria-label="Call Yohann Chandy">
                       Yohann Chandy: +91 91880 01211
                     </a>
                     
@@ -105,7 +110,7 @@ const Footer = () => {
             </div>
 
             <div className="w-full px-4 sm:w-1/2 lg:w-2/12" style={{ pointerEvents: 'auto' }}>
-              <div className="mb-10 w-full">
+              <nav className="mb-10 w-full" aria-label="Footer navigation">
                 <h4 className="mb-9 text-lg font-semibold text-white">
                   Navigate
                 </h4>
@@ -131,11 +136,11 @@ const Footer = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </nav>
             </div>
             
             <div className="w-full px-4 sm:w-1/2 lg:w-2/12" style={{ pointerEvents: 'auto' }}>
-              <div className="mb-10 w-full">
+              <nav className="mb-10 w-full" aria-label="Explore links">
                 <h4 className="mb-9 text-lg font-semibold text-white">
                   Explore
                 </h4>
@@ -156,11 +161,11 @@ const Footer = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </nav>
             </div>
             
             <div className="w-full px-4 sm:w-1/2 lg:w-2/12" style={{ pointerEvents: 'auto' }}>
-              <div className="mb-10 w-full">
+              <nav className="mb-10 w-full" aria-label="External links">
                 <h4 className="mb-9 text-lg font-semibold text-white">
                   Quick Links
                 </h4>
@@ -196,7 +201,7 @@ const Footer = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </nav>
             </div>
 
             <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
@@ -204,11 +209,12 @@ const Footer = () => {
                 <h4 className="mb-9 text-lg font-semibold text-white">
                   Follow Us On
                 </h4>
-                <div className="mb-6 flex items-center">
+                <div className="mb-6 flex items-center" role="list" aria-label="Social media links">
                   <a
                     href={socialItems[1].link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Follow us on Facebook"
                     className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white hover:border-primary hover:bg-primary sm:mr-4 lg:mr-3 xl:mr-4"
                   >
                     <svg
@@ -224,6 +230,7 @@ const Footer = () => {
                     href={socialItems[0].link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Follow us on Instagram"
                     className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white hover:border-primary hover:bg-primary sm:mr-4 lg:mr-3 xl:mr-4"
                   >
                     <svg
@@ -239,6 +246,7 @@ const Footer = () => {
                     href={socialItems[2].link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Follow us on LinkedIn"
                     className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white hover:border-primary hover:bg-primary sm:mr-4 lg:mr-3 xl:mr-4"
                   >
                     <svg

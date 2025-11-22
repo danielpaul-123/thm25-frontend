@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+PRE-DEPLOYMENT-CHECKLIST.md
+SEO-GUIDE.md
+.gitignore
+SEO-OPTIMIZATION-SUMMARY.md

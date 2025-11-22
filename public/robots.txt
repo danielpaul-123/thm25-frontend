@@ -1,0 +1,8 @@
+# robots.txt for THM 2025
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://thm.ieee-link.orgsitemap.xml

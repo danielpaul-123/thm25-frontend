@@ -3,23 +3,23 @@ import TextReveal from '../components/TextReveal';
 
 const Registration = () => {
   return (
-    <section className="relative w-full py-20 px-4 md:px-8 bg-black">
+    <section id="registration" className="relative w-full py-20 px-4 md:px-8 bg-black" aria-labelledby="registration-heading">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <TextReveal className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <header className="text-center mb-16">
+          <TextReveal id="registration-heading" className="text-4xl md:text-5xl font-bold text-white mb-4">
             Registration & Tickets
           </TextReveal>
-          <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto mt-4 mb-6"></div>
+          <div className="w-24 h-1 bg-linear-to-r from-[#00d693] to-[#048163] mx-auto mt-4 mb-6" aria-hidden="true"></div>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             Choose your ticket and be part of THM 2025
           </p>
-        </div>
+        </header>
 
         {/* Ticket Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* IEEE Member Ticket */}
-          <div className="relative group">
+          <article className="relative group">
             <div className="absolute inset-0 bg-linear-to-br from-[#00d693]/20 to-[#048163]/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
             <div className="relative bg-linear-to-br from-[#021921] to-[#060010] p-8 rounded-2xl border border-[#00d693]/30 hover:border-[#00d693]/60 transition-all duration-300">
               <div className="flex items-center justify-between mb-6">
@@ -88,14 +88,14 @@ const Registration = () => {
                 </div>
               </div>
 
-              <button className="w-full py-4 px-6 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105">
+              <button className="w-full py-4 px-6 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105" aria-label="Register as IEEE Member for ₹899">
                 Get Your Tickets
               </button>
             </div>
-          </div>
+          </article>
 
           {/* Non-IEEE Member Ticket */}
-          <div className="relative group">
+          <article className="relative group">
             <div className="absolute inset-0 bg-linear-to-br from-purple-500/10 to-blue-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
             <div className="relative bg-linear-to-br from-[#021921] to-[#060010] p-8 rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300">
               <div className="mb-6">
@@ -161,11 +161,11 @@ const Registration = () => {
                 </div>
               </div>
 
-              <button className="w-full py-4 px-6 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105">
+              <button className="w-full py-4 px-6 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105" aria-label="Register as Non-IEEE Member for ₹1399">
                 Get Your Tickets
               </button>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
