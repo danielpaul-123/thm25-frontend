@@ -1,6 +1,7 @@
 "use client";
 import React, { useCallback, useLayoutEffect, useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { HoverBorderGradient } from './ui/hover-border-gradient';
 export const StaggeredMenu = ({
   position = 'right',
@@ -22,6 +23,8 @@ export const StaggeredMenu = ({
   const [open, setOpen] = useState(false);
   const openRef = useRef(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const panelRef = useRef(null);
   const preLayersRef = useRef(null);
@@ -443,7 +446,36 @@ export const StaggeredMenu = ({
                       href={it.link}
                       aria-label={it.ariaLabel}
                       data-index={idx + 1}
-                      onClick={toggleMenu}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        toggleMenu();
+                        
+                        // Check if link is a hash link
+                        if (it.link.startsWith('/#')) {
+                          const targetId = it.link.substring(2); // Remove /#
+                          
+                          // If not on home page, navigate to home first
+                          if (location.pathname !== '/') {
+                            navigate('/');
+                            // Wait for navigation then scroll
+                            setTimeout(() => {
+                              const element = document.getElementById(targetId);
+                              if (element) {
+                                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                              }
+                            }, 100);
+                          } else {
+                            // Already on home page, just scroll
+                            const element = document.getElementById(targetId);
+                            if (element) {
+                              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                          }
+                        } else {
+                          // External or full path link
+                          navigate(it.link);
+                        }
+                      }}
                     >
                       <span className="sm-panel-itemLabel inline-block origin-[50%_100%] will-change-transform">
                         {it.label}
@@ -528,8 +560,8 @@ export const StaggeredMenu = ({
 .sm-scope .sm-panel-item:hover { color: var(--sm-accent, #ff0000); }
 .sm-scope .sm-panel-list[data-numbering] { counter-reset: smItem; }
 .sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { counter-increment: smItem; content: counter(smItem, decimal-leading-zero); position: absolute; top: 0.1em; right: 3.2em; font-size: 18px; font-weight: 400; color: var(--sm-accent, #ff0000); letter-spacing: 0; pointer-events: none; user-select: none; opacity: var(--sm-num-opacity, 0); }
-@media (max-width: 1024px) { .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } .sm-scope .sm-panel-item { font-size: 3rem; } .sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { right: 2.8em; } }
-@media (max-width: 640px) { .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } .sm-scope .sm-panel-item { font-size: 2.6rem; padding-right: 0.65em; } .sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { font-size: 14px; right: 0.3em; top: 0.2em; } }
+@media (max-width: 1024px) { .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } .sm-scope .sm-prelayers { width: 100%; left: 0; right: 0; } .sm-scope .sm-panel-item { font-size: 3rem; } .sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { right: 2.8em; } }
+@media (max-width: 640px) { .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } .sm-scope .sm-prelayers { width: 100%; left: 0; right: 0; } .sm-scope .sm-panel-item { font-size: 2.6rem; padding-right: 0.65em; } .sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { font-size: 14px; right: 0.3em; top: 0.2em; } }
       `}</style>
     </div>
   );

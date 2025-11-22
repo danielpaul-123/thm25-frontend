@@ -1,8 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Aurora from '../components/Aurora'
 import ShinyText from '../components/ShinyText'
 
 function Landing() {
+  const navigate = useNavigate();
+
   return (
     <section className="relative w-full h-screen overflow-hidden flex items-center justify-center" aria-label="Hero section">
         {/* Aurora as background */}
@@ -58,6 +61,17 @@ function Landing() {
                         <time dateTime="2025-12-06" className="text-sm md:text-base font-medium">December 6-7, 2025</time>
                     </div>
                 </div>
+            </div>
+            
+            {/* Get Your Tickets Button */}
+            <div className="mt-8">
+                <button 
+                    onClick={() => navigate('/register')}
+                    className="inline-block py-4 px-8 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-4xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105 cursor-pointer"
+                    aria-label="Get your tickets for THM 2025"
+                >
+                    Get Your Tickets
+                </button>
             </div>
             
             {/* <div className="inline-flex items-center gap-6 px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl relative overflow-hidden group">

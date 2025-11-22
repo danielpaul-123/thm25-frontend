@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import TextReveal from '../components/TextReveal';
 
 const Registration = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="registration" className="relative w-full py-20 px-4 md:px-8 bg-black" aria-labelledby="registration-heading">
       <div className="max-w-6xl mx-auto">
@@ -88,7 +91,11 @@ const Registration = () => {
                 </div>
               </div>
 
-              <button className="w-full py-4 px-6 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105" aria-label="Register as IEEE Member for ₹899">
+              <button 
+                onClick={() => navigate('/register')}
+                className="w-full py-4 px-6 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105 cursor-pointer" 
+                aria-label="Register as IEEE Member for ₹899"
+              >
                 Get Your Tickets
               </button>
             </div>
@@ -161,7 +168,11 @@ const Registration = () => {
                 </div>
               </div>
 
-              <button className="w-full py-4 px-6 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105" aria-label="Register as Non-IEEE Member for ₹1399">
+              <button 
+                onClick={() => navigate('/register')}
+                className="w-full py-4 px-6 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105 cursor-pointer" 
+                aria-label="Register as Non-IEEE Member for ₹1399"
+              >
                 Get Your Tickets
               </button>
             </div>

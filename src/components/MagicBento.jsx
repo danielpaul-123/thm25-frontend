@@ -448,7 +448,7 @@ const GlobalSpotlight = ({
 
 const BentoCardGrid = ({ children, gridRef }) => (
   <div
-    className="bento-section grid gap-2 p-3 w-full max-w-360 select-none relative mx-auto"
+    className="bento-section grid gap-2 p-3 w-full max-w-[1300px] select-none relative mx-auto"
     style={{ fontSize: 'clamp(1rem, 0.9rem + 0.5vw, 1.5rem)' }}
     ref={gridRef}>
     {children}
