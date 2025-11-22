@@ -25,10 +25,10 @@ function App() {
     <BrowserRouter>
       <Suspense fallback={null}>
         <Routes>
-          {/* <Route path="/" element={<ComingSoon />} /> */}
-          {/* <Route path="/home" element={<Home />} /> */}
+          <Route path="/" element={<ComingSoon />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/register" element={<RegistrationPage />} />
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
