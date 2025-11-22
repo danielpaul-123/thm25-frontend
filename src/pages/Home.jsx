@@ -28,6 +28,24 @@ const socialItems = [
 
 function Home() {
   const [contentVisible, setContentVisible] = useState(false);
+  const [ticketsAvailable, setTicketsAvailable] = useState(true);
+
+  useEffect(() => {
+    // Fetch ticket availability
+    const apiUrl = import.meta.env.VITE_API_URL;
+    fetch(`${apiUrl}/tickets/availability`)
+      .then(response => response.json())
+      .then(result => {
+        if (result.success) {
+          setTicketsAvailable(result.data.status === 'open');
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching ticket availability:', error);
+        // Default to available on error
+        setTicketsAvailable(true);
+      });
+  }, []);
 
   useEffect(() => {
     // Smooth scroll handler for navigation links
@@ -96,11 +114,11 @@ function Home() {
       {/* Content on top of starfield */}
       <div className="relative z-10">
         {/* Sections displayed in specific order */}
-        <div id="landing"><Landing /></div>
+        <div id="landing"><Landing ticketsAvailable={ticketsAvailable} /></div>
         <div id="about"><AboutUs /></div>
         <div id="features"><Features /></div>
         <div id="schedule"><Schedule /></div>
-        <div id="registration"><Registration /></div>
+        <div id="registration"><Registration ticketsAvailable={ticketsAvailable} /></div>
         <div id="gallery"><MediaGallery /></div>
         <div id="contact"><Footer /></div>
       </div>

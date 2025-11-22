@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import TextReveal from '../components/TextReveal';
 
-const Registration = () => {
+const Registration = ({ ticketsAvailable }) => {
   const navigate = useNavigate();
 
   return (
@@ -92,11 +92,16 @@ const Registration = () => {
               </div>
 
               <button 
-                onClick={() => navigate('/register')}
-                className="w-full py-4 px-6 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105 cursor-pointer" 
-                aria-label="Register as IEEE Member for ₹899"
+                onClick={() => ticketsAvailable && navigate('/register')}
+                disabled={!ticketsAvailable}
+                className={`w-full py-4 px-6 ${
+                  ticketsAvailable 
+                    ? 'bg-linear-to-r from-[#00d693] to-[#048163] hover:shadow-lg hover:shadow-[#00d693]/50 hover:scale-105 cursor-pointer' 
+                    : 'bg-gray-600 cursor-not-allowed opacity-50'
+                } text-white font-semibold rounded-xl transition-all duration-300`}
+                aria-label={ticketsAvailable ? "Register as IEEE Member for ₹899" : "Tickets are sold out"}
               >
-                Get Your Tickets
+                {ticketsAvailable ? 'Get Your Tickets' : 'Sold Out'}
               </button>
             </div>
           </article>
@@ -169,11 +174,16 @@ const Registration = () => {
               </div>
 
               <button 
-                onClick={() => navigate('/register')}
-                className="w-full py-4 px-6 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105 cursor-pointer" 
-                aria-label="Register as Non-IEEE Member for ₹1399"
+                onClick={() => ticketsAvailable && navigate('/register')}
+                disabled={!ticketsAvailable}
+                className={`w-full py-4 px-6 ${
+                  ticketsAvailable 
+                    ? 'bg-linear-to-r from-[#00d693] to-[#048163] hover:shadow-lg hover:shadow-[#00d693]/50 hover:scale-105 cursor-pointer' 
+                    : 'bg-gray-600 cursor-not-allowed opacity-50'
+                } text-white font-semibold rounded-xl transition-all duration-300`}
+                aria-label={ticketsAvailable ? "Register as Non-IEEE Member for ₹1399" : "Tickets are sold out"}
               >
-                Get Your Tickets
+                {ticketsAvailable ? 'Get Your Tickets' : 'Sold Out'}
               </button>
             </div>
           </article>

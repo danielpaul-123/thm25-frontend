@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Aurora from '../components/Aurora'
 import ShinyText from '../components/ShinyText'
 
-function Landing() {
+function Landing({ ticketsAvailable }) {
   const navigate = useNavigate();
 
   return (
@@ -66,11 +66,16 @@ function Landing() {
             {/* Get Your Tickets Button */}
             <div className="mt-8">
                 <button 
-                    onClick={() => navigate('/register')}
-                    className="inline-block py-4 px-8 bg-linear-to-r from-[#00d693] to-[#048163] text-white font-semibold rounded-4xl hover:shadow-lg hover:shadow-[#00d693]/50 transition-all duration-300 hover:scale-105 cursor-pointer"
-                    aria-label="Get your tickets for THM 2025"
+                    onClick={() => ticketsAvailable && navigate('/register')}
+                    disabled={!ticketsAvailable}
+                    className={`inline-block py-4 px-8 ${
+                        ticketsAvailable 
+                            ? 'bg-linear-to-r from-[#00d693] to-[#048163] hover:shadow-lg hover:shadow-[#00d693]/50 hover:scale-105 cursor-pointer' 
+                            : 'bg-gray-600 cursor-not-allowed opacity-50'
+                    } text-white font-semibold rounded-4xl transition-all duration-300`}
+                    aria-label={ticketsAvailable ? "Get your tickets for THM 2025" : "Tickets are sold out"}
                 >
-                    Get Your Tickets
+                    {ticketsAvailable ? 'Get Your Tickets' : 'Sold Out'}
                 </button>
             </div>
             

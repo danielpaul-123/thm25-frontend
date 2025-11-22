@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -105,8 +105,24 @@ const RegistrationPage = () => {
   const [currentStage, setCurrentStage] = useState(1);
   const [formData, setFormData] = useState({});
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [soldOutDialogOpen, setSoldOutDialogOpen] = useState(false);
   const [dialogContent, setDialogContent] = useState({ title: '', description: '', type: 'success' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Check ticket availability on mount
+  useEffect(() => {
+    const apiUrl = import.meta.env.VITE_API_URL;
+    fetch(`${apiUrl}/tickets/availability`)
+      .then(response => response.json())
+      .then(result => {
+        if (result.success && result.data.status === 'closed') {
+          setSoldOutDialogOpen(true);
+        }
+      })
+      .catch(error => {
+        console.error('Error checking ticket availability:', error);
+      });
+  }, []);
 
   // Get current schema based on stage
   const getCurrentSchema = () => {
@@ -855,6 +871,35 @@ const RegistrationPage = () => {
       <Footer />
 
       {/* Status Dialog */}
+      {/* Sold Out Dialog */}
+      <Dialog open={soldOutDialogOpen} onOpenChange={() => {
+        setSoldOutDialogOpen(false);
+        navigate('/');
+      }}>
+        <DialogContent className="bg-black/95 border-white/20 text-white">
+          <DialogHeader>
+            <DialogTitle className="text-red-400">
+              Tickets Sold Out
+            </DialogTitle>
+            <DialogDescription className="text-gray-300">
+              We're sorry, but all tickets for THM 2025 have been sold out. Thank you for your interest!
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end mt-4">
+            <Button
+              onClick={() => {
+                setSoldOutDialogOpen(false);
+                navigate('/');
+              }}
+              className="bg-[#00d693] hover:bg-[#00d693]/90 text-black"
+            >
+              Go to Home
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Success/Error Dialog */}
       <Dialog open={dialogOpen} onOpenChange={(open) => {
         setDialogOpen(open);
         if (!open && dialogContent.type === 'success') {
