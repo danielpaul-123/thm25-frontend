@@ -313,6 +313,12 @@ const RegistrationPage = () => {
             </p>
           </div>
 
+          {/* Bulk registration notice (always visible) */}
+          <div className="max-w-3xl mx-auto mb-6 px-4 py-3 rounded-lg bg-[#052823] border border-[#0f6b55] text-sm text-gray-200" role="region" aria-label="Bulk registration note">
+            <strong className="text-[#00d693]">Bulk Registrations:</strong>
+            <span className="ml-2">For bulk/group registrations, please contact your IEEE Student Branch Execom</span>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Left Side - Stage Indicator */}
             <div className="lg:col-span-4">
