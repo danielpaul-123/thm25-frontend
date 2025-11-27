@@ -72,6 +72,13 @@ const paymentSchema = z.object({
   transactionScreenshot: z.any().refine((file) => file && file.length > 0, {
     message: 'Transaction screenshot is required',
   }),
+  referralCode: z.string().max(50).optional().refine((val) => {
+    // allow undefined or empty value
+    if (!val) return true;
+    return /^[A-Za-z0-9]+$/.test(val);
+  }, {
+    message: 'Referral code must be alphanumeric (letters and numbers only)'
+  }),
   agreeToTerms: z.boolean().refine((val) => val === true, {
     message: 'You must agree to the terms and conditions',
   }),
@@ -794,6 +801,25 @@ const RegistrationPage = () => {
                                 />
                               </FormControl>
                               <p className="text-sm text-gray-400">Upload a screenshot of your payment confirmation</p>
+                              <FormMessage className="text-red-400" />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="referralCode"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-white">Referral Code (optional)</FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="text"
+                                  placeholder="Enter referral code"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <p className="text-sm text-gray-400">If you have a referral or promo code, enter it here.</p>
                               <FormMessage className="text-red-400" />
                             </FormItem>
                           )}
